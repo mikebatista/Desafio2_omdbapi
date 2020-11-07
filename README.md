@@ -2,14 +2,24 @@
 Este é um projeto base utilizado para testes de api.
 Ele foi elaborado com base na OMD API
 
-# Pré-requisitos
-Para executar o projeto será necessário instalar os seguintes programas:
- - Node.js
- - Visual Studio Code
+### Pré-requisitos
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/)
+Além disso é bom ter um editor para trabalhar com o código como o [VSCode](https://code.visualstudio.com/)
 
-# Instalação
- - Clone este repositório para algum diretório em sua máquina local usando https://github.com/mikebatista/Desafio2_omdbapi.git
-
-# Como executar os testes
-Abra o projeto no Visual Studio Code e use o comando *npm run test* no Terminal
-Após a execução será gerado um relatório no caminho seuDiretorio/reports/index.html onde será possível visualizar o resultado dos testes. 
+### Como executar os testes
+Clone este repositório
+```sh
+$ git clone https://github.com/mikebatista/Desafio2_omdbapi.git
+```
+Abra o VSCode, acesse a pasta do projeto e execute o os seguintes comando no terminal para instalar as dependências e iniciar execução dos testes
+```sh
+$ npm install
+$ npm run test
+```
+Após a execução dos testes, será criado um relatório html, contendo o resultado dos testes, este relatório fica localizado no caminho: pastaDoProjeto/reports/index.html
+### Tecnologias
+As seguintes ferramentas foram usadas na construção do projeto;
+ - [Supertest](https://www.npmjs.com/package/supertest) - fornece uma abstração de alto nível para testar HTTP
+ - [Chai](https://www.chaijs.com/) - biblioteca de asserção BDD / TDD
+ - [Mocha](https://mochajs.org/) - fornece relatórios flexíveis e precisos

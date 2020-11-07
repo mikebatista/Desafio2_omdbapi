@@ -1,14 +1,14 @@
 var ID_DO_FILME = 'tt1285016';
 var API_KEY = '52ec71bf';
 
-var request = require('supertest')("http://www.omdbapi.com/?i="+ID_DO_FILME+"&apikey="+API_KEY);
+var request = require('supertest')("http://www.omdbapi.com/?");
 var expect = require('chai').expect;
 
 describe("OMDb API - The Open Movie Database", function () {
 
   it("validar titulo", function (done) {
     request
-      .get('')
+      .get("i="+ID_DO_FILME+"&apikey="+API_KEY)
       .expect(200)
       .end(function (err, res) {
         expect(res.body.Title).to.equal("The Social Network");    
@@ -18,7 +18,7 @@ describe("OMDb API - The Open Movie Database", function () {
   })
   it("validar ano", function (done) {
     request
-      .get('')
+    .get("i="+ID_DO_FILME+"&apikey="+API_KEY)
       .expect(200)
       .end(function (err, res) {
         expect(res.body.Year).to.equal("2010");    
@@ -28,12 +28,24 @@ describe("OMDb API - The Open Movie Database", function () {
   })
   it("validar idioma", function (done) {
     request
-      .get('')
+    .get("i="+ID_DO_FILME+"&apikey="+API_KEY)
       .expect(200)
       .end(function (err, res) {
         expect(res.body.Language).to.equal("English, French");    
         done();
         console.log(res.body.Language);    
+      });
+  })
+  
+  it("validar filme inexistente", function (done) {
+    ID_DO_FILME = 'tt12850166';
+    request
+    .get("i="+ID_DO_FILME+"&apikey="+API_KEY)
+      .expect(200)
+      .end(function (err, res) {
+        expect(res.body.Error).to.equal("Error getting data.");    
+        done();
+        console.log(res.body.Error);
       });
   })
 });

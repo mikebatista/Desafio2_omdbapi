@@ -38,12 +38,12 @@ describe("OMDb API - The Open Movie Database", function () {
   })
   
   it("validar filme inexistente", function (done) {
-    ID_DO_FILME = 'tt12850166';
+    ID_DO_FILME = '123456'; // id inexistente
     request
     .get("i="+ID_DO_FILME+"&apikey="+API_KEY)
       .expect(200)
       .end(function (err, res) {
-        expect(res.body.Error).to.equal("Error getting data.");    
+        expect(res.body.Error).to.equal("Incorrect IMDb ID.");    
         done();
         console.log(res.body.Error);
       });
